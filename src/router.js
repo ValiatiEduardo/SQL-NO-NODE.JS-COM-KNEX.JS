@@ -1,10 +1,15 @@
 const { Router } = require('express')
 const express = require('express')
 const userControllers = require('./controllers/userControllers')
+const ProjectController = require('./controllers/ProjectsController')
 const router = express.Router()
 
-router.get('/users', userControllers.index)
-router.post('/users', userControllers.create)
-router.put('/users/:id', userControllers.create)
-router.delete('/users/:id', userControllers.delete)
+router
+    // Users
+    .get('/users', userControllers.index)
+    .post('/users', userControllers.create)
+    .put('/users/:id', userControllers.create)
+    .delete('/users/:id', userControllers.delete)
+    // Projects
+    .get('/projects', ProjectController.index)
 module.exports = router
